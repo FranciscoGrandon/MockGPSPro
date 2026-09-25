@@ -2,9 +2,9 @@
 
 [![Platform](https://img.shields.io/badge/Platform-Android%207.0%2B-green.svg)](https://developer.android.com)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-1.4.0-brightgreen.svg)](https://github.com/FranciscoGrandon/MockGPSPro)
+[![Version](https://img.shields.io/badge/Version-1.5.0-brightgreen.svg)](https://github.com/FranciscoGrandon/MockGPSPro)
 
-**Mock GPS Pro** es una herramienta avanzada y ligera de simulación y fijación de telemetría GPS para Android. Diseñada especialmente para desarrolladores y control de calidad (QA), permite probar aplicaciones sensibles a la ubicación mediante la inyección precisa de coordenadas, cinemática peatonal realista, síntesis completa de constelaciones satelitales GNSS y un visor de mapas interactivo basado en OpenStreetMap.
+**Mock GPS Pro** es una herramienta avanzada y ligera de simulación y fijación de telemetría GPS para Android con una interfaz moderna y limpia (**Light UI Concept**). Diseñada especialmente para desarrolladores y control de calidad (QA), permite probar aplicaciones sensibles a la ubicación mediante la inyección precisa de coordenadas, cinemática peatonal realista, síntesis completa de constelaciones satelitales GNSS y un visor de mapas interactivo basado en OpenStreetMap.
 
 ---
 
@@ -88,8 +88,15 @@ cd build/apk && zip -q -u ../app.unsigned.apk classes.dex && cd ../..
 # 5. Firmar APK
 apksigner sign --ks debug.keystore --ks-pass pass:android --key-pass pass:android \
     --v1-signing-enabled true --v2-signing-enabled true \
-    --out MockGPSPro-v1.4.0-signed.apk build/app.unsigned.apk
+    --out MockGPSPro-v1.5.0-signed.apk build/app.unsigned.apk
 ```
+
+---
+
+## 🌟 Novedades v1.5.0 (Light UI Concept)
+- **Rediseño Visual Integral:** Interfaz moderna y limpia basada en paleta clara (`#F4F7F8`), tarjetas individuales con bordes redondeados y sombras sutiles.
+- **Acciones y Conmutadores:** Botones de inicio con gradiente verde vibrante, botón de detención suave, y conmutadores rápidos para ajustes de Desarrollador y Batería.
+- **Mapa Leaflet Estilizado:** Pin de ubicación azul personalizado con aro de pulso animado, círculo de radio de dispersión integrado y leyenda visual en mapa.
 
 ---
 

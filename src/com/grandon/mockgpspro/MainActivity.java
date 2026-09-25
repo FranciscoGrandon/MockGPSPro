@@ -35,8 +35,8 @@ public class MainActivity extends Activity {
     private TextView tvStatus;
     private Button btnStart;
     private Button btnStop;
-    private Button btnDevSettings;
-    private Button btnBatterySettings;
+    private View btnDevSettings;
+    private View btnBatterySettings;
     private Button btnPresetConcepcion;
     private Button btnPresetSantiago;
     private Button btnCenterMap;
@@ -64,11 +64,11 @@ public class MainActivity extends Activity {
             }
 
             if (warmupRemaining > 0) {
-                tvStatus.setText("Estado: ⏳ Calentamiento TTFF (" + warmupRemaining + "s restantes)\nPosición: " + String.format("%.5f", curLat) + ", " + String.format("%.5f", curLng) + " (±" + String.format("%.1fm", curAcc) + ")");
-                tvStatus.setTextColor(0xFFFFD600);
+                tvStatus.setText("⏳  Calentamiento TTFF (" + warmupRemaining + "s restantes)\nPosición: " + String.format("%.5f", curLat) + ", " + String.format("%.5f", curLng) + " (±" + String.format("%.1fm", curAcc) + ")");
+                tvStatus.setTextColor(0xFF9A7B00);
             } else {
-                tvStatus.setText("Estado: 🟢 SIMULACIÓN ACTIVA EN SEGUNDO PLANO\nPosición actual: " + String.format("%.5f", curLat) + ", " + String.format("%.5f", curLng) + " (±" + String.format("%.1fm", curAcc) + ")\nGNSS: 14+ satélites sintetizados con deriva física.");
-                tvStatus.setTextColor(0xFF00E676);
+                tvStatus.setText("🟢  SIMULACIÓN ACTIVA EN SEGUNDO PLANO\nPosición actual: " + String.format("%.5f", curLat) + ", " + String.format("%.5f", curLng) + " (±" + String.format("%.1fm", curAcc) + ")\nGNSS: 14+ satélites sintetizados con deriva física.");
+                tvStatus.setTextColor(0xFF087A5B);
             }
         }
     };
@@ -101,8 +101,8 @@ public class MainActivity extends Activity {
 
         btnStart = (Button) findViewById(R.id.btn_start);
         btnStop = (Button) findViewById(R.id.btn_stop);
-        btnDevSettings = (Button) findViewById(R.id.btn_dev_settings);
-        btnBatterySettings = (Button) findViewById(R.id.btn_battery_settings);
+        btnDevSettings = findViewById(R.id.btn_dev_settings);
+        btnBatterySettings = findViewById(R.id.btn_battery_settings);
         btnPresetConcepcion = (Button) findViewById(R.id.btn_preset_concepcion);
         btnPresetSantiago = (Button) findViewById(R.id.btn_preset_santiago);
         btnCenterMap = (Button) findViewById(R.id.btn_center_map);
@@ -172,7 +172,7 @@ public class MainActivity extends Activity {
         settings.setDatabaseEnabled(true);
         settings.setCacheMode(WebSettings.LOAD_DEFAULT);
         // Política oficial OSM: User-Agent descriptivo con identificación de app y contacto del desarrollador (sin spoofing genérico)
-        settings.setUserAgentString("MockGPSPro/1.4.0 (com.grandon.mockgpspro; grandonpanxo@gmail.com) Android");
+        settings.setUserAgentString("MockGPSPro/1.5.0 (com.grandon.mockgpspro; grandonpanxo@gmail.com) Android");
 
         wvMap.addJavascriptInterface(new WebAppInterface(), "AndroidBridge");
         wvMap.setWebViewClient(new WebViewClient() {
@@ -188,7 +188,7 @@ public class MainActivity extends Activity {
     }
 
     private void loadLeafletMapHtml(double lat, double lng, double radius) {
-        // Implementación conforme a la Tile Usage Policy de OpenStreetMap Foundation (OSMF)
+        // Implementación con diseño Light UI Concept y cumplimiento de OSM Tile Usage Policy
         String html = "<!DOCTYPE html>"
             + "<html>"
             + "<head>"
@@ -196,24 +196,43 @@ public class MainActivity extends Activity {
             + "<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css' />"
             + "<script src='https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js'></script>"
             + "<style>"
-            + "html, body, #map { margin: 0; padding: 0; width: 100%; height: 100%; background: #1a1a1a; }"
-            + ".leaflet-control-attribution { font-size: 9px; background: rgba(0,0,0,0.6) !important; color: #bbb !important; }"
-            + ".leaflet-control-attribution a { color: #00E676 !important; text-decoration: none; }"
+            + "html, body, #map { margin: 0; padding: 0; width: 100%; height: 100%; background: #edf1ec; }"
+            + ".leaflet-control-attribution { font-size: 8px; background: rgba(255,255,255,0.85) !important; color: #6d7b84 !important; border-radius: 4px; padding: 2px 4px; }"
+            + ".leaflet-control-attribution a { color: #00a878 !important; text-decoration: none; font-weight: bold; }"
+            + ".leaflet-bar { border: 1px solid #dce5e9 !important; border-radius: 10px !important; overflow: hidden; box-shadow: 0 4px 12px rgba(35,60,70,0.08) !important; }"
+            + ".leaflet-bar a { background-color: #ffffff !important; color: #51656e !important; border-bottom: 1px solid #e0e8eb !important; }"
+            + ".pin-marker { width: 24px; height: 24px; border-radius: 50% 50% 50% 0; background: #1688c7; transform: rotate(-45deg); box-shadow: 0 0 0 6px rgba(22,136,199,0.22), 0 0 0 14px rgba(22,136,199,0.1); position: relative; }"
+            + ".pin-marker:after { content: ''; position: absolute; width: 8px; height: 8px; border-radius: 50%; background: white; left: 8px; top: 8px; }"
+            + ".map-legend { position: absolute; right: 10px; bottom: 10px; z-index: 1000; background: rgba(255,255,255,0.93); border: 1px solid #d9e2e4; border-radius: 12px; padding: 8px 10px; font-size: 9px; font-family: sans-serif; box-shadow: 0 4px 14px rgba(0,0,0,0.08); color: #52616a; pointer-events: none; }"
+            + ".legend-row { display: flex; align-items: center; gap: 6px; margin: 2px 0; }"
+            + ".legend-dot { width: 8px; height: 8px; border-radius: 50%; background: #1688c7; }"
+            + ".legend-line { width: 15px; height: 3px; border-radius: 2px; background: #00b987; }"
             + "</style>"
             + "</head>"
             + "<body>"
             + "<div id='map'></div>"
+            + "<div class='map-legend'>"
+            + "  <div class='legend-row'><span class='legend-dot'></span> Tu ubicación (simulada)</div>"
+            + "  <div class='legend-row'><span class='legend-line'></span> Rango de deriva</div>"
+            + "</div>"
             + "<script>"
             + "var map = L.map('map', {zoomControl: true}).setView([" + lat + ", " + lng + "], 16);"
             + "L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {"
             + "  maxZoom: 19,"
-            + "  attribution: '&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors'"
+            + "  attribution: '&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a>'"
             + "}).addTo(map);"
-            + "var marker = L.marker([" + lat + ", " + lng + "]).addTo(map);"
+            + "var pinIcon = L.divIcon({"
+            + "  className: 'pin-wrap',"
+            + "  html: '<div class=\"pin-marker\"></div>',"
+            + "  iconSize: [24, 24],"
+            + "  iconAnchor: [12, 24]"
+            + "});"
+            + "var marker = L.marker([" + lat + ", " + lng + "], {icon: pinIcon}).addTo(map);"
             + "var circle = L.circle([" + lat + ", " + lng + "], {"
-            + "  color: '#00E676',"
-            + "  fillColor: '#00E676',"
-            + "  fillOpacity: 0.25,"
+            + "  color: '#00a878',"
+            + "  fillColor: '#00c98b',"
+            + "  fillOpacity: 0.18,"
+            + "  weight: 2,"
             + "  radius: " + radius
             + "}).addTo(map);"
             + "map.on('click', function(e) {"

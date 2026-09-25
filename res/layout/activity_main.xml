@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#121212"
+    android:background="#F4F7F8"
     android:fillViewport="true">
 
     <LinearLayout
@@ -11,296 +11,401 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Encabezado -->
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="🛰️ Mock GPS Pro v1.3"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:textColor="#00E676"
-            android:layout_marginBottom="2dp" />
-
-        <TextView
-            android:id="@+id/tv_subtitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Simulación Realista Anti-Heurística con Visor de Mapa"
-            android:textSize="12sp"
-            android:textColor="#AAAAAA"
-            android:layout_marginBottom="12dp" />
-
-        <!-- Botones de Sistema -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="12dp">
-
-            <Button
-                android:id="@+id/btn_dev_settings"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="⚙️ Desarrollador"
-                android:textSize="11sp"
-                android:background="#37474F"
-                android:textColor="#80D8FF"
-                android:padding="8dp"
-                android:layout_marginEnd="4dp" />
-
-            <Button
-                android:id="@+id/btn_battery_settings"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="🔋 Sin Batería Opt"
-                android:textSize="11sp"
-                android:background="#263238"
-                android:textColor="#FFD54F"
-                android:padding="8dp"
-                android:layout_marginStart="4dp" />
-        </LinearLayout>
-
-        <!-- Coordenadas Base -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="8dp">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:layout_marginEnd="4dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Latitud:"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12sp" />
-
-                <EditText
-                    android:id="@+id/et_lat"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="-36.82699"
-                    android:textColor="#FFFFFF"
-                    android:textColorHint="#666666"
-                    android:inputType="numberDecimal|numberSigned"
-                    android:background="#242424"
-                    android:padding="8dp"
-                    android:textSize="13sp"
-                    android:layout_marginTop="2dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:layout_marginStart="4dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Longitud:"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12sp" />
-
-                <EditText
-                    android:id="@+id/et_lng"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="-73.04977"
-                    android:textColor="#FFFFFF"
-                    android:textColorHint="#666666"
-                    android:inputType="numberDecimal|numberSigned"
-                    android:background="#242424"
-                    android:padding="8dp"
-                    android:textSize="13sp"
-                    android:layout_marginTop="2dp" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <!-- Parámetros Anti-Detección -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="10dp">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:layout_marginEnd="4dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Radio Deriva (m):"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12sp" />
-
-                <EditText
-                    android:id="@+id/et_radius"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="15.0"
-                    android:textColor="#FFFFFF"
-                    android:inputType="numberDecimal"
-                    android:background="#242424"
-                    android:padding="8dp"
-                    android:textSize="13sp"
-                    android:layout_marginTop="2dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:layout_marginStart="4dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Calentamiento (s):"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12sp" />
-
-                <EditText
-                    android:id="@+id/et_warmup"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="15"
-                    android:textColor="#FFFFFF"
-                    android:inputType="number"
-                    android:background="#242424"
-                    android:padding="8dp"
-                    android:textSize="13sp"
-                    android:layout_marginTop="2dp" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <!-- Botones de Acción -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="10dp">
-
-            <Button
-                android:id="@+id/btn_start"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="▶ INICIAR"
-                android:background="#00C853"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold"
-                android:padding="12dp"
-                android:layout_marginEnd="4dp" />
-
-            <Button
-                android:id="@+id/btn_stop"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="⏹ DETENER"
-                android:background="#D50000"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold"
-                android:padding="12dp"
-                android:layout_marginStart="4dp" />
-        </LinearLayout>
-
-        <!-- Presets -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="12dp">
-
-            <Button
-                android:id="@+id/btn_preset_concepcion"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="📍 Concepción"
-                android:textSize="11sp"
-                android:background="#2A2A2A"
-                android:textColor="#FFFFFF"
-                android:padding="6dp"
-                android:layout_marginEnd="4dp" />
-
-            <Button
-                android:id="@+id/btn_preset_santiago"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="📍 Santiago"
-                android:textSize="11sp"
-                android:background="#2A2A2A"
-                android:textColor="#FFFFFF"
-                android:padding="6dp"
-                android:layout_marginStart="4dp" />
-        </LinearLayout>
-
-        <!-- Tarjeta de Estado -->
-        <TextView
-            android:id="@+id/tv_status"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Estado: En espera de inicio."
-            android:textColor="#80D8FF"
-            android:textSize="12sp"
-            android:padding="10dp"
-            android:background="#1A1A1A"
-            android:layout_marginBottom="12dp" />
-
-        <!-- Sección de Mapa Interactivo en la Parte Inferior -->
+        <!-- Header -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:layout_marginBottom="6dp">
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="16dp">
 
+            <!-- Logo -->
             <TextView
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:background="@drawable/logo_gradient"
+                android:text="⌖"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginEnd="12dp" />
+
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="🗺️ Mapa en Vivo (Toca para fijar):"
-                android:textColor="#00E676"
-                android:textSize="13sp"
-                android:textStyle="bold" />
+                android:orientation="vertical">
 
-            <Button
-                android:id="@+id/btn_center_map"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Centrar"
-                android:textSize="10sp"
-                android:background="#333333"
-                android:textColor="#FFFFFF"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
-                android:minHeight="0dp"
-                android:minWidth="0dp" />
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mock GPS Pro v1.4"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#17232B" />
+
+                <TextView
+                    android:id="@+id/tv_subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Simulación Realista Anti Heurística · Visor de Mapa"
+                    android:textSize="11sp"
+                    android:textColor="#6D7B84"
+                    android:layout_marginTop="1dp" />
+            </LinearLayout>
         </LinearLayout>
 
-        <WebView
-            android:id="@+id/wv_map"
+        <!-- Toggles Superiores -->
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:background="#222222" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="14dp">
+
+            <!-- Toggle Desarrollador -->
+            <LinearLayout
+                android:id="@+id/btn_dev_settings"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/bg_toggle_dev"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginEnd="5dp">
+
+                <TextView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:background="@drawable/bg_badge_mint"
+                    android:text="⚙"
+                    android:textColor="#00845F"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Desarrollador"
+                    android:textColor="#00845F"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Toggle Batería -->
+            <LinearLayout
+                android:id="@+id/btn_battery_settings"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/bg_toggle_battery"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginStart="5dp">
+
+                <TextView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:background="@drawable/bg_badge_amber"
+                    android:text="▣"
+                    android:textColor="#9A7B00"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sin Batería Opt"
+                    android:textColor="#9A7B00"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Panel de Control y Métricas -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_panel"
+            android:orientation="vertical"
+            android:padding="14dp"
+            android:layout_marginBottom="14dp">
+
+            <!-- Fila 1 de Métricas: Latitud y Longitud -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+
+                <!-- Latitud -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_metric_card"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    android:layout_marginEnd="4dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="●  Latitud"
+                        android:textColor="#6D7B84"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/et_lat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="-36.82699"
+                        android:textColor="#17232B"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:inputType="numberDecimal|numberSigned"
+                        android:background="@null"
+                        android:paddingTop="4dp" />
+                </LinearLayout>
+
+                <!-- Longitud -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_metric_card"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    android:layout_marginStart="4dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="●  Longitud"
+                        android:textColor="#6D7B84"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/et_lng"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="-73.04977"
+                        android:textColor="#17232B"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:inputType="numberDecimal|numberSigned"
+                        android:background="@null"
+                        android:paddingTop="4dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Fila 2 de Métricas: Radio Deriva y Calentamiento -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
+
+                <!-- Radio Deriva -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_metric_card"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    android:layout_marginEnd="4dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="◎  Radio Deriva (m)"
+                        android:textColor="#6D7B84"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/et_radius"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="15.0"
+                        android:textColor="#17232B"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:inputType="numberDecimal"
+                        android:background="@null"
+                        android:paddingTop="4dp" />
+                </LinearLayout>
+
+                <!-- Calentamiento -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_metric_card"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    android:layout_marginStart="4dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="◷  Calentamiento (s)"
+                        android:textColor="#6D7B84"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/et_warmup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="15"
+                        android:textColor="#17232B"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:inputType="number"
+                        android:background="@null"
+                        android:paddingTop="4dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Botones de Acción (INICIAR y DETENER) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
+
+                <Button
+                    android:id="@+id/btn_start"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_weight="1"
+                    android:text="▶   INICIAR"
+                    android:background="@drawable/btn_start"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="5dp" />
+
+                <Button
+                    android:id="@+id/btn_stop"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_weight="1"
+                    android:text="■   DETENER"
+                    android:background="@drawable/btn_stop"
+                    android:textColor="#E53935"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="5dp" />
+            </LinearLayout>
+
+            <!-- Presets (Segmented control) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
+
+                <Button
+                    android:id="@+id/btn_preset_concepcion"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:text="●   Concepción"
+                    android:background="@drawable/bg_preset_left"
+                    android:textColor="#50616A"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn_preset_santiago"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:text="●   Santiago"
+                    android:background="@drawable/bg_preset_right"
+                    android:textColor="#50616A"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Tarjeta de Estado Soft Mint -->
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_status_card"
+                android:text="✓  Ubicación simulada: HABILITADA en desarrollador.\n▣  Batería: Sin restricciones · segundo plano activo."
+                android:textColor="#087A5B"
+                android:textSize="11sp"
+                android:lineSpacingMultiplier="1.4"
+                android:padding="12dp" />
+        </LinearLayout>
+
+        <!-- Panel de Mapa -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_panel"
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:layout_marginBottom="24dp">
+
+            <!-- Cabecera del Mapa -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="10dp"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="⌖   Mapa en Vivo  (Toca para fijar)"
+                    android:textColor="#17232B"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn_center_map"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:background="@drawable/btn_center"
+                    android:text="◉   Centrar"
+                    android:textColor="#51656E"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:minHeight="0dp"
+                    android:minWidth="0dp" />
+            </LinearLayout>
+
+            <!-- WebView del Mapa con borde y esquinas redondeadas -->
+            <WebView
+                android:id="@+id/wv_map"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="#EDF1EC" />
+        </LinearLayout>
 
     </LinearLayout>
 </ScrollView>
