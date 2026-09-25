@@ -1,0 +1,11 @@
+# Bytecode y binarios compilados
+build/
+*.apk
+*.dex
+*.class
+*.keystore
+
+# Archivos de sistema y logs
+*.log
+.DS_Store
+Thumbs.db
