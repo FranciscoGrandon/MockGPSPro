@@ -65,7 +65,7 @@ public class MainActivity extends Activity {
 
             if (warmupRemaining > 0) {
                 tvStatus.setText("⏳  Calentamiento TTFF (" + warmupRemaining + "s restantes)\nPosición: " + String.format("%.5f", curLat) + ", " + String.format("%.5f", curLng) + " (±" + String.format("%.1fm", curAcc) + ")");
-                tvStatus.setTextColor(0xFF9A7B00);
+                tvStatus.setTextColor(0xFFD32F2F);
             } else {
                 tvStatus.setText("🟢  SIMULACIÓN ACTIVA EN SEGUNDO PLANO\nPosición actual: " + String.format("%.5f", curLat) + ", " + String.format("%.5f", curLng) + " (±" + String.format("%.1fm", curAcc) + ")\nGNSS: 14+ satélites sintetizados con deriva física.");
                 tvStatus.setTextColor(0xFF087A5B);
@@ -172,7 +172,7 @@ public class MainActivity extends Activity {
         settings.setDatabaseEnabled(true);
         settings.setCacheMode(WebSettings.LOAD_DEFAULT);
         // Política oficial OSM: User-Agent descriptivo con identificación de app y contacto del desarrollador (sin spoofing genérico)
-        settings.setUserAgentString("MockGPSPro/1.5.0 (com.grandon.mockgpspro; grandonpanxo@gmail.com) Android");
+        settings.setUserAgentString("GeoLabGPS/1.6.0 (com.grandon.mockgpspro; grandonpanxo@gmail.com) Android");
 
         wvMap.addJavascriptInterface(new WebAppInterface(), "AndroidBridge");
         wvMap.setWebViewClient(new WebViewClient() {
@@ -386,7 +386,7 @@ public class MainActivity extends Activity {
         if (hasMock) {
             sb.append("Ubicación Simulada: ✅ HABILITADA en desarrollador.\n");
         } else {
-            sb.append("Ubicación Simulada: ⚠️ Pulsa 'Desarrollador' y selecciona Mock GPS Pro.\n");
+            sb.append("Ubicación Simulada: ⚠️ Pulsa 'Desarrollador' y selecciona GeoLab GPS.\n");
         }
 
         if (noBatteryOpt) {
@@ -396,7 +396,7 @@ public class MainActivity extends Activity {
         }
 
         tvStatus.setText(sb.toString());
-        tvStatus.setTextColor(hasMock ? 0xFF00E676 : 0xFFFFD600);
+        tvStatus.setTextColor(hasMock ? 0xFF087A5B : 0xFFD32F2F);
     }
 
     private void openDeveloperSettings() {
@@ -416,7 +416,7 @@ public class MainActivity extends Activity {
 
     private void checkPermissionsAndStart() {
         if (!isMockLocationAppSelected()) {
-            Toast.makeText(this, "Selecciona Mock GPS Pro en Opciones de desarrollador", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Selecciona GeoLab GPS en Opciones de desarrollador", Toast.LENGTH_LONG).show();
             openDeveloperSettings();
             return;
         }
@@ -459,7 +459,7 @@ public class MainActivity extends Activity {
             syncMapWithInputs();
 
             tvStatus.setText("Estado: 🟢 SIMULACIÓN INICIADA\nObjetivo: " + lat + ", " + lng + " (Radio: ±" + radius + "m)\nCalentando satélites...");
-            tvStatus.setTextColor(0xFF00E676);
+            tvStatus.setTextColor(0xFF087A5B);
         } catch (NumberFormatException e) {
             Toast.makeText(this, "Valores numéricos inválidos", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {

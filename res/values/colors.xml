@@ -10,6 +10,6 @@
     <color name="primary_light">#EFFBF7</color>
     <color name="danger_red">#E53935</color>
     <color name="danger_light">#FFF5F4</color>
-    <color name="yellow_gold">#9A7B00</color>
-    <color name="yellow_light">#FFFAF0</color>
+    <color name="badge_red">#D32F2F</color>
+    <color name="badge_red_light">#FFEBEE</color>
 </resources>

@@ -329,7 +329,7 @@ public class MockLocationService extends Service {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(
                 CHANNEL_ID,
-                "Mock GPS Pro Service",
+                "GeoLab GPS Service",
                 NotificationManager.IMPORTANCE_LOW
             );
             channel.setDescription("Emisión continua de telemetría GPS simulada");
@@ -358,7 +358,7 @@ public class MockLocationService extends Service {
         );
 
         return builder
-            .setContentTitle("Mock GPS Pro Activo")
+            .setContentTitle("GeoLab GPS Activo")
             .setContentText(text)
             .setSmallIcon(android.R.drawable.ic_menu_mylocation)
             .setContentIntent(pendingIntent)

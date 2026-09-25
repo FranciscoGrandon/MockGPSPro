@@ -21,15 +21,11 @@
             android:layout_marginBottom="16dp">
 
             <!-- Logo -->
-            <TextView
+            <ImageView
                 android:layout_width="46dp"
                 android:layout_height="46dp"
-                android:background="@drawable/logo_gradient"
-                android:text="⌖"
-                android:textColor="#FFFFFF"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:gravity="center"
+                android:src="@drawable/ic_launcher"
+                android:scaleType="fitCenter"
                 android:layout_marginEnd="12dp" />
 
             <LinearLayout
@@ -42,7 +38,7 @@
                     android:id="@+id/tv_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Mock GPS Pro v1.4"
+                    android:text="GeoLab GPS"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="#17232B" />
@@ -117,7 +113,7 @@
                     android:layout_height="28dp"
                     android:background="@drawable/bg_badge_amber"
                     android:text="▣"
-                    android:textColor="#9A7B00"
+                    android:textColor="#D32F2F"
                     android:textSize="14sp"
                     android:gravity="center"
                     android:layout_marginEnd="8dp" />
@@ -126,7 +122,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Sin Batería Opt"
-                    android:textColor="#9A7B00"
+                    android:textColor="#C62828"
                     android:textSize="12sp"
                     android:textStyle="bold" />
             </LinearLayout>

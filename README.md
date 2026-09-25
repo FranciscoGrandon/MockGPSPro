@@ -1,10 +1,10 @@
-# Mock GPS Pro (Android)
+# GeoLab GPS (Android)
 
 [![Platform](https://img.shields.io/badge/Platform-Android%207.0%2B-green.svg)](https://developer.android.com)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-1.5.0-brightgreen.svg)](https://github.com/FranciscoGrandon/MockGPSPro)
+[![Version](https://img.shields.io/badge/Version-1.6.0-brightgreen.svg)](https://github.com/FranciscoGrandon/MockGPSPro)
 
-**Mock GPS Pro** es una herramienta avanzada y ligera de simulación y fijación de telemetría GPS para Android con una interfaz moderna y limpia (**Light UI Concept**). Diseñada especialmente para desarrolladores y control de calidad (QA), permite probar aplicaciones sensibles a la ubicación mediante la inyección precisa de coordenadas, cinemática peatonal realista, síntesis completa de constelaciones satelitales GNSS y un visor de mapas interactivo basado en OpenStreetMap.
+**GeoLab GPS** (anteriormente Mock GPS Pro) es una suite avanzada, ligera y estética de simulación y calibración de telemetría GPS para Android. Con una interfaz limpia (**Light UI Concept**), un icono ad-hoc con temática de laboratorio y cinemática anti-heurística, permite probar aplicaciones sensibles a la ubicación mediante la inyección precisa de coordenadas, deriva física peatonal continua, síntesis completa de constelaciones GNSS y un visor de mapas interactivo basado en OpenStreetMap.
 
 ---
 
@@ -90,6 +90,14 @@ apksigner sign --ks debug.keystore --ks-pass pass:android --key-pass pass:androi
     --v1-signing-enabled true --v2-signing-enabled true \
     --out MockGPSPro-v1.5.0-signed.apk build/app.unsigned.apk
 ```
+
+---
+
+## 🌟 Novedades v1.6.0 (GeoLab GPS)
+- **Rebranding Oficial:** Cambio de nombre integral a **GeoLab GPS**.
+- **Icono Ad-hoc en Alta Definición:** Icono con matraz de laboratorio tecnológico, pin GPS carmesí y ondas de radar esmeralda generado para todas las densidades de pantalla (`mdpi` a `xxxhdpi`).
+- **Mejora de Contraste y Legibilidad:** Reemplazo de tipografías e indicadores amarillos de bajo contraste por tonos rojos (`#D32F2F` / `#C62828`) de alta visibilidad.
+- **Identidad Visual en Cabecera:** Integración del logotipo en la barra principal y notificaciones del servicio de segundo plano.
 
 ---
 
